@@ -1,1 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Chaudhary - Terminal Resume</title>
+    <style>
+        :root {
+            --term-green: #00ff41;
+            --term-dark: #001100;
+            --glow: 0 0 10px rgba(0, 255, 65, 0.4);
+        }
 
+        body {
+            background-color: #050505;
+            color: var(--term-green);
+            font-family: "Courier New", Courier, monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            text-shadow: var(--glow);
+        }
+
+        /* CRT Scanline Effect */
+        body::after {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+            background-size: 100% 4px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        #terminal {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            padding-bottom: 50px;
+        }
+
+        h1, h2, h3 {
+            font-weight: normal;
+            margin: 0;
+        }
+
+        .prompt {
+            color: #008f11;
+            font-weight: bold;
+        }
+
+        .command {
+            color: #fff;
+            margin-bottom: 15px;
+            display: block;
+            margin-top: 20px;
+        }
+
+        a {
+            color: #00ff41;
+            text-decoration: underline;
+            text-decoration-style: dashed;
+        }
+
+        a:hover {
+            background-color: var(--term-green);
+            color: #000;
+        }
+
+        .divider {
+            color: #008f11;
+            margin: 10px 0;
+        }
+
+        .entry {
+            margin-bottom: 25px;
+            padding-left: 15px;
+            border-left: 1px dashed #008f11;
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 5px;
+        }
+
+        .title {
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .tags {
+            font-style: italic;
+            color: #008f11;
+        }
+
+        .subtitle {
+            text-transform: uppercase;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+
+        .date {
+            color: #008f11;
+        }
+
+        ul {
+            margin: 5px 0 0 0;
+            padding-left: 20px;
+            list-style-type: square;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        td {
+            padding: 4px 10px;
+            vertical-align: top;
+        }
+
+        .year-col {
+            width: 80px;
+            color: #008f11;
+        }
+
+        .type-col {
+            text-align: right;
+            font-style: italic;
+            color: #008f11;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 1.2em;
+            background-color: var(--term-green);
+            vertical-align: bottom;
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Responsive styling for smaller screens */
+        @media (max-width: 600px) {
+            .entry-header { flex-direction: column; }
+            td { display: block; width: 100%; text-align: left !important; }
+            .year-col { padding-bottom: 0; }
+            .type-col { padding-top: 0; margin-bottom: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="terminal">
+    <div>
+        <span class="prompt">guest@sys_mainframe:~$</span> <span class="command">whoami</span>
+        <h1>ADITYA CHAUDHARY</h1>
+        <p>Location: Milan, Italy<br>
+        Email 1 : <a href="mailto:adityatd112@gmail.com">adityatd112@gmail.com</a><br>
+        Email 2 : <a href="mailto:aditya.chaudhary@studenti.unimi.it">aditya.chaudhary@studenti.unimi.it</a></p>
+    </div>
+
+    <div>
+        <span class="prompt">guest@sys_mainframe:~$</span> <span class="command">cat /home/aditya/education.txt</span>
+        <div class="divider">================================================================================</div>
+        <div class="entry">
+            <div class="title">University of Milano Statale, University of Pavia, University of Milano-Bicocca</div>
+            <div class="subtitle">INTER-UNIVERSITY DEGREE PROGRAM WITH FULL SCHOLARSHIP — BACHELOR OF SCIENCE IN ARTIFICIAL INTELLIGENCE</div>
+        </div>
+    </div>
+
+    <div>
+        <span class="prompt">guest@sys_mainframe:~$</span> <span class="command">./load_experience.sh</span>
+        <div class="divider">================================================================================</div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <span class="title">Research</span>
+                <span class="tags">Physics, Math, CS</span>
+            </div>
+            <div class="subtitle">INDEPENDENT <span class="date">[Jul. 2023 - PRESENT]</span></div>
+            <ul>
+                <li>Poster accepted in NeurIPS 2025 workshop (AI for Science: The Reach and Limits of AI for Scientific Discovery) on <em>A Foundational Dataset for the Predictive Prevention of Waterborne Disease</em>.</li>
+            </ul>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <span class="title">World Science Scholar</span>
+                <span class="tags">Physics, Maths</span>
+            </div>
+            <div class="subtitle">WORLD SCIENCE FESTIVAL <span class="date">[2024 - 2025]</span></div>
+            <ul>
+                <li>Selected as 1 of 52 World Science Scholars for 2024, representing India among a global student cohort which are selected to expand their mathematical abilities as they participate in college-level experiences led by world-renowned scientists. Fields addressed range from astrobiology to computational programming to neuroscience, with a final in-person attendance at World Science Festival in NYC. Took live courses under Prof. Brian Greene, Cumrun Vafa, Stephen Wolfram and more, and working on Kaon Decay proposal for CERN Beamline.</li>
+            </ul>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <span class="title">Harvard Ventures-TECH Summer Program</span>
+                <span class="tags">Technology, Entrepreneurship</span>
+            </div>
+            <div class="subtitle">TECHNOLOGY AND ENTREPRENEURSHIP CENTER AT HARVARD <span class="date">[2025]</span></div>
+            <ul>
+                <li>Accepted with Full Scholarship for a highly competitive program that pairs high school students with venture-backed startups for a six-week internship. Worked directly with startup founders and C-suite executives on a real-world project while attending interactive MBA-level workshops led by Harvard professors, successful entrepreneurs, and investors from firms like Sequoia Capital, Y Combinator, and Andreessen Horowitz. Engaged in mentorship sessions with industry leaders and gained hands-on experience in business strategy, innovation, and technology.</li>
+            </ul>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <span class="title">PROMYS India 2025 Fellow</span>
+                <span class="tags">Mathematics</span>
+            </div>
+            <div class="subtitle">PROGRAM IN MATHEMATICS FOR YOUNG SCIENTISTS <span class="date">[May - June 2025]</span></div>
+            <ul>
+                <li>Accepted with Full Scholarship as a Mehta Fellow after a highly competitive selection for a challenging six-week residential mathematics summer programme. Meticulously selected students from across India gather on the campus of the Indian Institute of Science (IISc) Bengaluru to immerse themselves in rigorous exploratory theoretical mathematics.</li>
+            </ul>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <span class="title">Wandering Applied Rationality Program</span>
+                <span class="tags">Maths, CS</span>
+            </div>
+            <div class="subtitle">FABRIC <span class="date">[Mar. 2024 - Apr. 2024]</span></div>
+            <ul>
+                <li>Run by the ESPR/SPARC team in Spring 2024. Attended a residential program at University of Oxford with full scholarship on Computation Theory, LLMs-Transformers, Math, Logic, among other concepts.</li>
+            </ul>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <span class="title">Rise Global Finalist</span>
+                <span class="tags">Mechanical Engineering</span>
+            </div>
+            <div class="subtitle">RHODES TRUST & SCHMIDT FUTURES <span class="date">[Jan. 2020 - PRESENT]</span></div>
+            <ul>
+                <li>Developed a novel vaccine delivery prototype for remote regions, using bicycle-powered thermoelectric modules with the Peltier Effect for refrigeration, eliminating the need for ice packs or external electricity. Selected by Govt. of India, Rise Global Challenge (Rhodes Trust & Schmidt Futures), received personal letter of recommendation from Dr. Chintan Vaishnav, MD of AIM, Govt. of India, & Academic Director of MIT Tata Center for Technology and Design.</li>
+            </ul>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <span class="title">Non-Trivial Research Fellowship & Stockholm Junior Water Prize India</span>
+                <span class="tags">STEM</span>
+            </div>
+            <div class="subtitle">NON-TRIVIAL, SJWP, IIT MADRAS <span class="date">[Mar. 2025]</span></div>
+            <ul>
+                <li>(2% acceptance rate) Selected for the 2025 NonTrivial Fellows Spring cohort & finalist in SJWP India 2025 for the same project. Engineered an AI-integrated water purification system employing SERS sensors and cold plasma technology.</li>
+            </ul>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <span class="title">AI & Quantum Research</span>
+                <span class="tags">QPE</span>
+            </div>
+            <div class="subtitle">BEYONDRESEARCH, CLASSIQ, QWORLD, WHITEBOX RESEARCH <span class="date">[2023 - PRESENT]</span></div>
+            <ul>
+                <li>Worked with a team of International University Professors & Graduates on Industry Project with Quantum Startup - Classiq on Quantum Phase Estimation Algorithm optimization; pre-print on ArXiv & v2 currently under further work for publication. Selected as a scholar in BeyondResearch’s BeyondAI program under Dr. Filip Bar. And selected as a Fellow to conducted AI Safety/Mechanistic Interpretability Research with WhiteBox Research. Collaborated with the International Astronomical Search Collaboration (2024 campaign) and NASA Citizen Science Exoplanet Watch; currently working on an astrophysics paper for Royal Astronomical Society membership.</li>
+            </ul>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <span class="title">NeuroSight</span>
+                <span class="tags">Neuroscience, ML, NN, GAN, AI</span>
+            </div>
+            <div class="subtitle">HEALTHTECH <span class="date">[May. 2023 - PRESENT]</span></div>
+            <ul>
+                <li>Working on a student research project/prototype, focused on developing low-cost, non-invasive BCI communication & bionic solutions powered by AI/ML, supporting individuals with paralysis, stroke, muscular dystrophy, & related neurological conditions. Received Special Mention in the ETH Zurich & Hackster.io contest, became a Semi-Finalist in Future Port Youth Awards, AWS Grand Challenge, & S.T. Yau Science Award (Asia) & finalist in national competitions by Indian Government.</li>
+            </ul>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <span class="title">Systems Awareness + Builder Space</span>
+                <span class="tags">Online & locally in Delhi, India</span>
+            </div>
+            <div class="subtitle">BUILDING A COMMUNITY FOR INNOVATIONS BY YOUTH <span class="date">[Jul. 2023 - PRESENT]</span></div>
+            <ul>
+                <li>Founded a hybrid support community for young students to develop high-impact projects with startup potential. Additionally, co-founded an online community with peers from MIT Awareness Lab's Centre for Systems Awareness Youth Council to share open-source & no/low-cost high-impact opportunities & resources for students & educators globally with free-flow discussion. Also participating in remote global conferences of MIT Awareness Lab with US school educators.</li>
+            </ul>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <span class="title">WARTEX</span>
+                <span class="tags">Online & Offline in Delhi, India</span>
+            </div>
+            <div class="subtitle">TECHNOLOGY SOCIETY, SHAHEED RAJPAL DAV PUBLIC SCHOOL <span class="date">[2017 - 2023]</span></div>
+            <ul>
+                <li>Served as President 2022-2023 (the longest running president in club history), Vice President 2021 (youngest VP in club history), Executive 2020, Organized Annual Tech Symposium and Competition for High School & University Students from Delhi-NCR (also saw participation from other states and UAE as well). Led a Team of 20 Members and 15 Volunteers. Organized workshops and training programs for juniors.</li>
+            </ul>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <span class="title">Volunteer Teaching</span>
+                <span class="tags">Online & locally in Delhi, India</span>
+            </div>
+            <div class="subtitle">INDEPENDENT <span class="date">[2023 - PRESENT]</span></div>
+            <ul>
+                <li>Collaborated with local schools and students from Economically Weaker Sections of society to organize workshops and seminars on Physics Topics such as Aeronautics, Thermodynamics, and more.</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div>
+        <span class="prompt">guest@sys_mainframe:~$</span> <span class="command">grep -i "honors" profile.db</span>
+        <div class="divider">================================================================================</div>
+        <table>
+            <tr><td class="year-col">2023</td><td><strong>IAAC 2023 Gold Honour</strong>, International Astronomy and Astrophysics Competition</td><td class="type-col">International</td></tr>
+            <tr><td class="year-col">2025</td><td><strong>Vivo Ignite 2025</strong>, Mentored team Project selected in Top 200 from 37000+ entries</td><td class="type-col">National</td></tr>
+            <tr><td class="year-col">2016-2019</td><td><strong>Junior Scientist of The Year</strong>, National Science Concours</td><td class="type-col">National</td></tr>
+            <tr><td class="year-col">2020</td><td><strong>Inspire-MANAK Award</strong>, Government of India</td><td class="type-col">National</td></tr>
+            <tr><td class="year-col">2023-24</td><td><strong>ATL Innovation Marathon</strong>, Government of India</td><td class="type-col">National</td></tr>
+            <tr><td class="year-col">2023</td><td><strong>QCEC Silver Honor</strong>, Royal Commonwealth Society</td><td class="type-col">International</td></tr>
+            <tr><td class="year-col">2016</td><td><strong>WHS Rio+23 Program Silver Award</strong>, United Nations</td><td class="type-col">National</td></tr>
+            <tr><td class="year-col">2024</td><td><strong>ATL Internship Program</strong>, Government of India</td><td class="type-col">National</td></tr>
+            <tr><td class="year-col">2020-2021</td><td><strong>ICPE - All India School Contest</strong>, Indian Centre for Plastics in the Environment</td><td class="type-col">National</td></tr>
+        </table>
+    </div>
+    
+    <div>
+        <span class="prompt">guest@sys_mainframe:~$</span> <span class="command">cat news_mentions.log</span>
+        <div class="divider">================================================================================</div>
+        <table>
+            <tr><td class="year-col">2023</td><td><strong>Hindustan Times</strong>, <a href="https://tinyurl.com/49eexj43" target="_blank">https://tinyurl.com/49eexj43</a></td><td class="type-col">Nat'l. Newspaper</td></tr>
+            <tr><td class="year-col">2023</td><td><strong>The Better India</strong>, <a href="https://tinyurl.com/4jcb7fka" target="_blank">https://tinyurl.com/4jcb7fka</a></td><td class="type-col">Digital News Outlet</td></tr>
+            <tr><td class="year-col">2023</td><td><strong>iGlobalNews</strong>, <a href="https://tinyurl.com/3zwxpwk5" target="_blank">https://tinyurl.com/3zwxpwk5</a></td><td class="type-col">Digital News Outlet</td></tr>
+            <tr><td class="year-col">2023</td><td><strong>Global Indian</strong>, <a href="https://tinyurl.com/yvcjv7c3" target="_blank">https://tinyurl.com/yvcjv7c3</a></td><td class="type-col">Digital News Outlet</td></tr>
+            <tr><td class="year-col">2025</td><td><strong>Zing TV (ZEE)</strong>, <a href="https://youtu.be/KOYCc8XGanI" target="_blank">https://youtu.be/KOYCc8XGanI</a></td><td class="type-col">Nat'l. TV Channel</td></tr>
+        </table>
+    </div>
+
+    <div style="margin-top: 40px;">
+        <span class="prompt">guest@sys_mainframe:~$</span> <span class="cursor"></span>
+    </div>
+</div>
+
+</body>
+</html>
